@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="PairAir: Learning Air Quality Variations from Corresponding Outdoor Images.">
+  <title>PairAir | Project Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="PairAir home"><span class="brand-mark">P</span><span>PairAir</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#overview">Overview</a>
+      <a href="#dataset">Dataset</a>
+      <a href="#method">Method</a>
+      <a href="#results">Results</a>
+      <a href="#resources">Resources</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="eyebrow">COMPUTER VISION · DATASET · AIR QUALITY</div>
+      <h1>PairAir: Learning Air Quality Variations from Corresponding Outdoor Images</h1>
+      <p class="subtitle">A paired-image framework for studying visual changes and air-quality variation across time.</p>
+
+      <div class="authors">
+        <span>[First Author]</span><span>[Second Author]</span><span>[Additional Authors]</span>
+      </div>
+      <p class="affiliation">[Institution / Department] · WACV camera-ready version in preparation</p>
+
+      <div class="hero-actions">
+        <span class="button primary button-disabled" aria-label="Paper PDF not published yet">Paper PDF · Coming soon</span>
+        <span class="button button-disabled" aria-label="Code not released yet">Code · Coming soon</span>
+        <span class="button button-disabled" aria-label="Dataset not released yet">Dataset · Coming soon</span>
+      </div>
+
+      <div class="hero-visual">
+        <div class="visual-panel">
+          <div class="panel-label">EARLIER OBSERVATION</div>
+          <img src="assets/sample-earlier.svg" alt="Replace with a real earlier PairAir outdoor image">
+          <p>Image + synchronized sensor measurement</p>
+        </div>
+        <div class="pair-connector"><span>PAIRED</span><b>↔</b></div>
+        <div class="visual-panel">
+          <div class="panel-label">LATER OBSERVATION</div>
+          <img src="assets/sample-later.svg" alt="Replace with the corresponding later PairAir outdoor image">
+          <p>Matched view + later sensor measurement</p>
+        </div>
+      </div>
+      <p class="figure-caption">Replace these placeholders with a true matched pair from your dataset. Do not publish illustrative images as dataset examples.</p>
+    </section>
+
+    <section class="section" id="overview">
+      <div class="section-heading"><span class="section-number">01</span><h2>Overview</h2></div>
+      <p class="lead">PairAir investigates whether changes between corresponding outdoor images can help estimate changes in measured air quality.</p>
+      <p>PairAir studies paired outdoor observations and their associated air-quality measurements. This project page will document the dataset, pairing protocol, evaluation, and release resources. Replace this paragraph with the final abstract-aligned summary before publication.</p>
+      <div class="stat-grid">
+        <article class="stat-card"><strong>[N]</strong><span>Images</span></article>
+        <article class="stat-card"><strong>[N]</strong><span>Observation dates</span></article>
+        <article class="stat-card"><strong>[N]</strong><span>Time slots / views</span></article>
+        <article class="stat-card"><strong>[N]</strong><span>Valid pairs</span></article>
+      </div>
+      <p class="note">Important: enter only counts verified against the final dataset and paper. Distinguish theoretical possible pairs from valid released pairs.</p>
+    </section>
+
+    <section class="section tinted" id="dataset">
+      <div class="section-heading"><span class="section-number">02</span><h2>Dataset</h2></div>
+      <p class="lead">Explain how outdoor images are associated with sensor readings and how observations are matched across time.</p>
+      <div class="two-column">
+        <div>
+          <h3>Data and labels</h3>
+          <ul class="clean-list">
+            <li>Outdoor images with view / image identifiers</li>
+            <li>Acquisition date and time-slot metadata</li>
+            <li>Synchronized sensor measurements</li>
+            <li>Air-quality targets such as PM2.5 and PM10</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Pairing principle</h3>
+          <p>Describe the exact matching keys, any tolerance for timestamp alignment, missing-data handling, and criteria for excluding invalid pairs.</p>
+        </div>
+      </div>
+      <h3 class="subheading">Representative samples</h3>
+      <p>Replace the three sample images below with real, publication-approved PairAir examples. Use matched views when possible and add accurate date, location, and sensor metadata in each caption. Do not expose sensitive location or data that is not cleared for release.</p>
+      <div class="sample-grid">
+        <figure><img src="assets/sample-earlier.svg" alt="Earlier observation placeholder"><figcaption>Earlier observation · [date / site]</figcaption></figure>
+        <figure><img src="assets/sample-later.svg" alt="Later observation placeholder"><figcaption>Later matched observation · [date / site]</figcaption></figure>
+        <figure><img src="assets/sample-third.svg" alt="Additional PairAir sample placeholder"><figcaption>Additional condition · [date / site]</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section" id="method">
+      <div class="section-heading"><span class="section-number">03</span><h2>Pairwise learning task</h2></div>
+      <p class="lead">Use this section to make the dataset's central idea understandable at a glance.</p>
+      <div class="pipeline">
+        <div class="pipeline-step"><span>1</span><h3>Match</h3><p>Find corresponding views across observations.</p></div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-step"><span>2</span><h3>Compare</h3><p>Represent visual changes between the two images.</p></div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-step"><span>3</span><h3>Predict</h3><p>Estimate the change in the selected sensor target.</p></div>
+      </div>
+      <div class="equation-card">
+        <div class="equation">Δy = y<sub>later</sub> − y<sub>earlier</sub></div>
+        <p>Replace or refine this notation to match the exact target definition in your paper.</p>
+      </div>
+      <p class="note">If your method uses normalized features, a particular image representation, or a different sign convention, state it accurately here.</p>
+    </section>
+
+    <section class="section tinted" id="results">
+      <div class="section-heading"><span class="section-number">04</span><h2>Evaluation and results</h2></div>
+      <p class="lead">Summarize the evaluation protocol and the main verified findings without overstating the results.</p>
+      <div class="results-placeholder">
+        <div class="chart-icon">↗</div>
+        <div><h3>Add a paper figure or a clean results table</h3><p>Use actual metrics, units, split definitions, baselines, and uncertainty where available. Make sure the website and paper report the same values.</p></div>
+      </div>
+      <p class="note">Recommended: describe date-wise and location-wise generalization only if those experiments were actually run.</p>
+    </section>
+
+    <section class="section" id="resources">
+      <div class="section-heading"><span class="section-number">05</span><h2>Resources</h2></div>
+      <div class="resource-grid">
+        <div class="resource-card resource-pending"><span class="resource-icon">PDF</span><strong>Paper</strong><span>PDF link will be added after finalization</span><b>SOON</b></div>
+        <div class="resource-card resource-pending"><span class="resource-icon">⌘</span><strong>Code</strong><span>Repository link pending release</span><b>SOON</b></div>
+        <div class="resource-card resource-pending"><span class="resource-icon">▦</span><strong>Dataset</strong><span>Access details pending release approval</span><b>SOON</b></div>
+        <a class="resource-card" href="#bibtex"><span class="resource-icon">❝</span><strong>Citation</strong><span>Use the provisional entry below</span><b>↓</b></a>
+      </div>
+      <h3 class="subheading" id="bibtex">Provisional BibTeX</h3>
+      <pre class="bibtex"><code>@inproceedings{pairair2026,
+  title     = {PairAir: Learning Air Quality Variations from Corresponding Outdoor Images},
+  author    = {[Add authors]},
+  booktitle = {[Add the official venue]},
+  year      = {2026}
+}</code></pre>
+      <p class="note">Provisional only: replace the authors, official conference name, year, and citation key with the exact publisher-provided BibTeX before public release.</p>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" href="#top"><span class="brand-mark">P</span><span>PairAir</span></a>
+    <p>Project page for PairAir · <a href="#resources">Resources</a></p>
+    <p class="footer-small">Built with HTML and CSS · Hosted with GitHub Pages</p>
+  </footer>
+</body>
+</html>

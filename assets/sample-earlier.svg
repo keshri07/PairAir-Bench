@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <rect width="1200" height="675" fill="#e8eff1"/>
+  <rect x="35" y="35" width="1130" height="605" rx="24" fill="#d8e5e7" stroke="#9eb8bd" stroke-width="3"/>
+  <circle cx="930" cy="180" r="58" fill="#e7b36f"/>
+  <path d="M35 500 L310 300 L500 450 L710 260 L1165 520 L1165 640 L35 640 Z" fill="#91b9b6"/>
+  <path d="M35 550 L320 420 L540 535 L770 390 L1165 560 L1165 640 L35 640 Z" fill="#6e9697"/>
+  <text x="600" y="115" font-family="Arial, sans-serif" font-size="34" text-anchor="middle" fill="#10243a" font-weight="700">Replace with a real PairAir image</text>
+  <text x="600" y="595" font-family="Arial, sans-serif" font-size="26" text-anchor="middle" fill="#10243a">Earlier observation placeholder</text>
+</svg>
