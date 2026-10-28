@@ -1,36 +1,28 @@
-# PairAir project website — camera-ready starter
+# PairAir-Bench project website
 
-This is a responsive, static project page for PairAir. It is configured for the current status:
-- Camera-ready paper in preparation
-- Author and affiliation details not yet supplied
-- Paper, code, and dataset URLs not yet public
-- Real sample images are available to add
+A responsive, static project website populated from `PairAir__Camera_Ready.pdf`.
 
-## Replace before launch
-1. Replace `[First Author]`, `[Second Author]`, `[Additional Authors]`, and `[Institution / Department]`.
-2. Replace the placeholder abstract/overview with text aligned with the final camera-ready paper.
-3. Add the actual PairAir sample images under `assets/` or change the image paths in `index.html`.
-   - `assets/sample-earlier.svg`
-   - `assets/sample-later.svg`
-   - `assets/sample-third.svg`
-   Replace each SVG path with the filename of your own approved image (for example, `assets/siteA_earlier.jpg`).
-4. Update captions with accurate dates, site labels, and sensor values from the released dataset.
-5. Replace `[N]` statistics with verified counts.
-6. Add the official paper URL, code repository URL, and dataset URL when available. The current resource buttons/cards intentionally show “Coming soon” and are not links.
-7. Replace the provisional BibTeX with the publisher's exact citation.
-8. Review licensing, privacy, and permissions before uploading image samples or sensor data.
+## Files
+- `index.html` — project page content
+- `style.css` — responsive styling
+- `assets/figure1-overview.png` — crop of Figure 1 from the paper
+- `assets/figure2-scenes.png` — crop of Figure 2 from the paper
+- `assets/figure5-method.png` — crop of Figure 5 from the paper
+- `assets/figure3-distributions.png` — crop from the dataset statistics page (available if needed)
+- `assets/PairAir_Camera_Ready.pdf` — paper PDF linked from the website
 
-## Publish with GitHub Pages
-1. Create a public GitHub repository, for example `pairair-project`.
-2. Upload `index.html`, `style.css`, and the `assets/` folder to the repository root.
-3. Open **Settings → Pages**.
-4. Select **Deploy from a branch**, then branch `main` and folder `/(root)`, and save.
-5. When the deployment finishes, GitHub will display the website URL. It will typically look like:
-   `https://YOUR-USERNAME.github.io/pairair-project/`
+## Publish to the existing GitHub repository
+1. Download and extract the ZIP.
+2. Open `https://github.com/keshri07/PairAir-Bench`.
+3. Choose **Add file → Upload files**.
+4. Upload/replace `index.html`, `style.css`, and the complete `assets` folder from this package. Keep `README.md` if you want the updated documentation.
+5. Commit the changes to `main`.
+6. GitHub Pages should redeploy automatically if Pages is already enabled for `main` and `/(root)`.
 
-If you want the shorter `https://YOUR-USERNAME.github.io/` address, create a repository named exactly `YOUR-USERNAME.github.io`.
+Expected site: https://keshri07.github.io/PairAir-Bench/
 
-## Important
-- GitHub Pages is public. Never upload private raw data, credentials, API keys, or data you do not have permission to redistribute.
-- Keep every metric, dataset count, caption, and claim consistent with the camera-ready paper.
-- Remove sections that do not reflect the actual method or experiments.
+## Before public launch
+- The paper PDF is included and linked publicly by this page. Remove it from `assets/` and remove the paper links if it is not cleared for public release.
+- Code and dataset URLs remain marked as coming soon; add real URLs only after release.
+- The BibTeX proceedings field is provisional because the final official proceedings citation was not present in the uploaded PDF.
+- Check the paper's internal methodological consistency before finalizing numerical details on the website. In particular, the manuscript has differing descriptions of color-probe counts and feature-vector dimensions in the text and Figure 5. This website avoids publishing those disputed dimensions.

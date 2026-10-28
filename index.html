@@ -3,145 +3,142 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="PairAir: Learning Air Quality Variations from Corresponding Outdoor Images.">
-  <title>PairAir | Project Page</title>
+  <meta name="theme-color" content="#10243a">
+  <meta name="description" content="PairAir-Bench: a dual-location paired image dataset for cross-scene generalizable air quality estimation.">
+  <title>PairAir-Bench | Project Website</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="#top" aria-label="PairAir home"><span class="brand-mark">P</span><span>PairAir</span></a>
-    <nav aria-label="Main navigation">
-      <a href="#overview">Overview</a>
-      <a href="#dataset">Dataset</a>
-      <a href="#method">Method</a>
-      <a href="#results">Results</a>
-      <a href="#resources">Resources</a>
-    </nav>
-  </header>
+<header class="site-header">
+  <a class="brand" href="#top"><span class="brand-mark">P</span><span>PairAir-Bench</span></a>
+  <nav aria-label="Main navigation">
+    <a href="#overview">Overview</a><a href="#dataset">Dataset</a><a href="#method">Method</a><a href="#results">Results</a><a href="#resources">Resources</a>
+  </nav>
+</header>
+<main id="top">
+  <section class="hero">
+    <div class="eyebrow">VISION-BASED ENVIRONMENTAL MONITORING · DATASET &amp; BENCHMARK</div>
+    <h1>A Dual-Location Paired Image Dataset for <span>Cross-Scene Generalizable Air Quality Estimation</span></h1>
+    <div class="authors">
+      <span>Ankit Kumar Keshri<sup>*</sup></span><span>Dilip Parmar<sup>*</sup></span><span>Sachchida Nand Tripathi</span><span>Tushar Sandhan</span>
+    </div>
+    <p class="affiliation">Indian Institute of Technology Kanpur (IIT Kanpur)</p>
+    <p class="equal-note"><sup>*</sup> Equal contribution</p>
+    <div class="hero-actions">
+      <a class="button primary" href="assets/PairAir_Camera_Ready.pdf" target="_blank" rel="noopener">Read the paper <span aria-hidden="true">↗</span></a>
+      <a class="button" href="#dataset">Explore the dataset</a>
+      <a class="button" href="#results">View benchmark results</a>
+    </div>
+    <figure class="hero-figure">
+      <img src="assets/figure1-overview.png" alt="Conceptual overview of PairAir-Bench, showing two distinct locations and a visual air-quality estimation framework">
+      <figcaption>PairAir-Bench combines observations from distinct campus environments to study visual air-quality estimation across locations.</figcaption>
+    </figure>
+  </section>
 
-  <main id="top">
-    <section class="hero">
-      <div class="eyebrow">COMPUTER VISION · DATASET · AIR QUALITY</div>
-      <h1>PairAir: Learning Air Quality Variations from Corresponding Outdoor Images</h1>
-      <p class="subtitle">A paired-image framework for studying visual changes and air-quality variation across time.</p>
+  <section class="section" id="overview">
+    <div class="section-heading"><span class="section-number">01</span><h2>Overview</h2></div>
+    <p class="lead">Can corresponding outdoor images help estimate changes in air quality without relying on a scene-specific background?</p>
+    <p>Image-based air-quality estimation offers a scalable complement to stationary monitors, but models trained on a single fixed camera can learn background geometry and other location-specific cues. <strong>PairAir-Bench</strong> is a dual-location CCTV image dataset paired with synchronized air-quality measurements. The accompanying study investigates temporal visual differencing and a patch-attention model to estimate changes in particulate matter and AQI, including evaluation on an unseen location.</p>
+    <div class="stat-grid">
+      <article class="stat-card"><strong>17,376</strong><span>Images across two locations</span></article>
+      <article class="stat-card"><strong>181 days</strong><span>Consecutive collection period</span></article>
+      <article class="stat-card"><strong>15 min</strong><span>Sampling interval</span></article>
+      <article class="stat-card"><strong>4.4M+</strong><span>Spatial patches before filtering</span></article>
+    </div>
+    <div class="callout"><strong>Research focus</strong><p>Measure how well paired visual changes transfer between structurally different scenes—not just how accurately a model fits images from a familiar camera.</p></div>
+  </section>
 
-      <div class="authors">
-        <span>[First Author]</span><span>[Second Author]</span><span>[Additional Authors]</span>
-      </div>
-      <p class="affiliation">[Institution / Department] · WACV camera-ready version in preparation</p>
+  <section class="section tinted" id="dataset">
+    <div class="section-heading"><span class="section-number">02</span><h2>Dataset</h2></div>
+    <p class="lead">Synchronized outdoor CCTV imagery and co-located environmental measurements from two contrasting campus locations.</p>
+    <div class="two-column">
+      <article class="info-card"><span class="mini-label">LOCATION A</span><h3>MT area</h3><p>A built-up, traffic-influenced campus environment with fixed outdoor camera coverage.</p></article>
+      <article class="info-card"><span class="mini-label">LOCATION B</span><h3>Nursery</h3><p>An open, vegetation-rich environment that provides a structurally different scene for cross-location evaluation.</p></article>
+    </div>
+    <figure class="wide-figure">
+      <img src="assets/figure2-scenes.png" alt="Representative PairAir-Bench frames from MT and Nursery locations in the morning, midday, and evening">
+      <figcaption>Representative scenes from the MT and Nursery locations at different times of day. Image shown from Figure 2 of the paper.</figcaption>
+    </figure>
+    <div class="dataset-details">
+      <div><span>Image resolution</span><strong>2560 × 1440</strong></div>
+      <div><span>Locations</span><strong>2 fixed CCTV sites</strong></div>
+      <div><span>Observation window</span><strong>07:00–18:45</strong></div>
+      <div><span>Images per location</span><strong>8,688</strong></div>
+      <div><span>Images per hour / location</span><strong>4</strong></div>
+      <div><span>Patch generation</span><strong>16 × 16 grid (256 patches/image)</strong></div>
+    </div>
+    <h3 class="subheading">Synchronized labels and metadata</h3>
+    <div class="tag-list"><span>PM₁</span><span>PM₂.₅</span><span>PM₁₀</span><span>AQI</span><span>Temperature</span><span>Relative humidity</span></div>
+    <p class="small-copy">Images are captured every 15 minutes from 07:00 to 18:45. Sensor readings are aligned to image timestamps; when an exact reading is unavailable, the paper describes using the closest reading within five minutes. The collection is described as ongoing in the paper.</p>
+  </section>
 
-      <div class="hero-actions">
-        <span class="button primary button-disabled" aria-label="Paper PDF not published yet">Paper PDF · Coming soon</span>
-        <span class="button button-disabled" aria-label="Code not released yet">Code · Coming soon</span>
-        <span class="button button-disabled" aria-label="Dataset not released yet">Dataset · Coming soon</span>
-      </div>
+  <section class="section" id="method">
+    <div class="section-heading"><span class="section-number">03</span><h2>Method</h2></div>
+    <p class="lead">Pair corresponding views, encode controlled color responses, and predict the difference in air-quality measurements.</p>
+    <div class="pipeline">
+      <article class="pipeline-step"><span>01</span><h3>Correspond</h3><p>Match observations from the same camera and time of day on different dates.</p></article>
+      <div class="pipeline-arrow" aria-hidden="true">→</div>
+      <article class="pipeline-step"><span>02</span><h3>Probe color changes</h3><p>Color-Difference Feature Extraction (CDFE) uses controlled color patches and normalized color responses.</p></article>
+      <div class="pipeline-arrow" aria-hidden="true">→</div>
+      <article class="pipeline-step"><span>03</span><h3>Aggregate patches</h3><p>The Patch-Attention Aggregation Network (PAAN) aggregates patch-level representations with attention.</p></article>
+      <div class="pipeline-arrow" aria-hidden="true">→</div>
+      <article class="pipeline-step"><span>04</span><h3>Predict differences</h3><p>Estimate paired changes in PM₂.₅, PM₁₀, and AQI.</p></article>
+    </div>
+    <figure class="wide-figure method-figure">
+      <img src="assets/figure5-method.png" alt="Paper's CDFE method diagram showing corresponding image patches, controlled color probes, feature differences, meteorological inputs, and prediction">
+      <figcaption>Method overview reproduced from Figure 5 of the paper. Consult the paper for the full formulation and architecture details.</figcaption>
+    </figure>
+    <div class="equation-card">
+      <div class="equation">X<sub>A,B</sub> = F(I<sub>A</sub>) − F(I<sub>B</sub>)</div>
+      <p>Pairwise feature difference for corresponding observations A and B. The model predicts changes in the associated air-quality targets.</p>
+    </div>
+  </section>
 
-      <div class="hero-visual">
-        <div class="visual-panel">
-          <div class="panel-label">EARLIER OBSERVATION</div>
-          <img src="assets/sample-earlier.svg" alt="Replace with a real earlier PairAir outdoor image">
-          <p>Image + synchronized sensor measurement</p>
-        </div>
-        <div class="pair-connector"><span>PAIRED</span><b>↔</b></div>
-        <div class="visual-panel">
-          <div class="panel-label">LATER OBSERVATION</div>
-          <img src="assets/sample-later.svg" alt="Replace with the corresponding later PairAir outdoor image">
-          <p>Matched view + later sensor measurement</p>
-        </div>
-      </div>
-      <p class="figure-caption">Replace these placeholders with a true matched pair from your dataset. Do not publish illustrative images as dataset examples.</p>
-    </section>
+  <section class="section tinted" id="results">
+    <div class="section-heading"><span class="section-number">04</span><h2>Benchmark results</h2></div>
+    <p class="lead">The paper reports normalized-target MAE and RMSE for three PAAN evaluation settings.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Setting</th><th>Metric</th><th>ΔPM₂.₅</th><th>ΔPM₁₀</th><th>ΔAQI</th><th>Overall</th></tr></thead>
+        <tbody>
+          <tr><th rowspan="2">PAAN (Only)</th><td>MAE</td><td>0.0227</td><td>0.0284</td><td>0.0213</td><td><strong>0.0242</strong></td></tr>
+          <tr><td>RMSE</td><td>0.0297</td><td>0.0369</td><td>0.0292</td><td><strong>0.0321</strong></td></tr>
+          <tr><th rowspan="2">PAAN (Strict)</th><td>MAE</td><td>0.0450</td><td>0.0620</td><td>0.0445</td><td>0.0505</td></tr>
+          <tr><td>RMSE</td><td>0.0634</td><td>0.0797</td><td>0.0613</td><td>0.0686</td></tr>
+          <tr><th rowspan="2">PAAN (Cross-Location)</th><td>MAE</td><td>0.1209</td><td>0.1102</td><td>0.0923</td><td>0.1078</td></tr>
+          <tr><td>RMSE</td><td>0.1514</td><td>0.1389</td><td>0.1210</td><td>0.1377</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small-copy">The PAAN (Only) setting has the lowest reported overall errors. Error increases in the cross-location setting, highlighting the remaining domain-shift challenge. The paper states that targets are normalized to [0, 1]; these values should not be interpreted as errors in physical units.</p>
+    <div class="result-highlight"><div><span class="mini-label">PAAN (ONLY) · OVERALL MAE</span><strong>0.0242</strong></div><div><span class="mini-label">PAAN (CROSS-LOCATION) · OVERALL RMSE</span><strong>0.1377</strong></div></div>
+  </section>
 
-    <section class="section" id="overview">
-      <div class="section-heading"><span class="section-number">01</span><h2>Overview</h2></div>
-      <p class="lead">PairAir investigates whether changes between corresponding outdoor images can help estimate changes in measured air quality.</p>
-      <p>PairAir studies paired outdoor observations and their associated air-quality measurements. This project page will document the dataset, pairing protocol, evaluation, and release resources. Replace this paragraph with the final abstract-aligned summary before publication.</p>
-      <div class="stat-grid">
-        <article class="stat-card"><strong>[N]</strong><span>Images</span></article>
-        <article class="stat-card"><strong>[N]</strong><span>Observation dates</span></article>
-        <article class="stat-card"><strong>[N]</strong><span>Time slots / views</span></article>
-        <article class="stat-card"><strong>[N]</strong><span>Valid pairs</span></article>
-      </div>
-      <p class="note">Important: enter only counts verified against the final dataset and paper. Distinguish theoretical possible pairs from valid released pairs.</p>
-    </section>
-
-    <section class="section tinted" id="dataset">
-      <div class="section-heading"><span class="section-number">02</span><h2>Dataset</h2></div>
-      <p class="lead">Explain how outdoor images are associated with sensor readings and how observations are matched across time.</p>
-      <div class="two-column">
-        <div>
-          <h3>Data and labels</h3>
-          <ul class="clean-list">
-            <li>Outdoor images with view / image identifiers</li>
-            <li>Acquisition date and time-slot metadata</li>
-            <li>Synchronized sensor measurements</li>
-            <li>Air-quality targets such as PM2.5 and PM10</li>
-          </ul>
-        </div>
-        <div>
-          <h3>Pairing principle</h3>
-          <p>Describe the exact matching keys, any tolerance for timestamp alignment, missing-data handling, and criteria for excluding invalid pairs.</p>
-        </div>
-      </div>
-      <h3 class="subheading">Representative samples</h3>
-      <p>Replace the three sample images below with real, publication-approved PairAir examples. Use matched views when possible and add accurate date, location, and sensor metadata in each caption. Do not expose sensitive location or data that is not cleared for release.</p>
-      <div class="sample-grid">
-        <figure><img src="assets/sample-earlier.svg" alt="Earlier observation placeholder"><figcaption>Earlier observation · [date / site]</figcaption></figure>
-        <figure><img src="assets/sample-later.svg" alt="Later observation placeholder"><figcaption>Later matched observation · [date / site]</figcaption></figure>
-        <figure><img src="assets/sample-third.svg" alt="Additional PairAir sample placeholder"><figcaption>Additional condition · [date / site]</figcaption></figure>
-      </div>
-    </section>
-
-    <section class="section" id="method">
-      <div class="section-heading"><span class="section-number">03</span><h2>Pairwise learning task</h2></div>
-      <p class="lead">Use this section to make the dataset's central idea understandable at a glance.</p>
-      <div class="pipeline">
-        <div class="pipeline-step"><span>1</span><h3>Match</h3><p>Find corresponding views across observations.</p></div>
-        <div class="pipeline-arrow">→</div>
-        <div class="pipeline-step"><span>2</span><h3>Compare</h3><p>Represent visual changes between the two images.</p></div>
-        <div class="pipeline-arrow">→</div>
-        <div class="pipeline-step"><span>3</span><h3>Predict</h3><p>Estimate the change in the selected sensor target.</p></div>
-      </div>
-      <div class="equation-card">
-        <div class="equation">Δy = y<sub>later</sub> − y<sub>earlier</sub></div>
-        <p>Replace or refine this notation to match the exact target definition in your paper.</p>
-      </div>
-      <p class="note">If your method uses normalized features, a particular image representation, or a different sign convention, state it accurately here.</p>
-    </section>
-
-    <section class="section tinted" id="results">
-      <div class="section-heading"><span class="section-number">04</span><h2>Evaluation and results</h2></div>
-      <p class="lead">Summarize the evaluation protocol and the main verified findings without overstating the results.</p>
-      <div class="results-placeholder">
-        <div class="chart-icon">↗</div>
-        <div><h3>Add a paper figure or a clean results table</h3><p>Use actual metrics, units, split definitions, baselines, and uncertainty where available. Make sure the website and paper report the same values.</p></div>
-      </div>
-      <p class="note">Recommended: describe date-wise and location-wise generalization only if those experiments were actually run.</p>
-    </section>
-
-    <section class="section" id="resources">
-      <div class="section-heading"><span class="section-number">05</span><h2>Resources</h2></div>
-      <div class="resource-grid">
-        <div class="resource-card resource-pending"><span class="resource-icon">PDF</span><strong>Paper</strong><span>PDF link will be added after finalization</span><b>SOON</b></div>
-        <div class="resource-card resource-pending"><span class="resource-icon">⌘</span><strong>Code</strong><span>Repository link pending release</span><b>SOON</b></div>
-        <div class="resource-card resource-pending"><span class="resource-icon">▦</span><strong>Dataset</strong><span>Access details pending release approval</span><b>SOON</b></div>
-        <a class="resource-card" href="#bibtex"><span class="resource-icon">❝</span><strong>Citation</strong><span>Use the provisional entry below</span><b>↓</b></a>
-      </div>
-      <h3 class="subheading" id="bibtex">Provisional BibTeX</h3>
-      <pre class="bibtex"><code>@inproceedings{pairair2026,
-  title     = {PairAir: Learning Air Quality Variations from Corresponding Outdoor Images},
-  author    = {[Add authors]},
-  booktitle = {[Add the official venue]},
+  <section class="section" id="resources">
+    <div class="section-heading"><span class="section-number">05</span><h2>Resources</h2></div>
+    <div class="resource-grid">
+      <a class="resource-card" href="assets/PairAir_Camera_Ready.pdf" target="_blank" rel="noopener"><span class="resource-icon">PDF</span><strong>Paper</strong><span>Read the camera-ready manuscript</span><b>Open ↗</b></a>
+      <div class="resource-card resource-pending"><span class="resource-icon">⌘</span><strong>Code</strong><span>Add the public code repository when released</span><b>Coming soon</b></div>
+      <div class="resource-card resource-pending"><span class="resource-icon">▦</span><strong>Dataset</strong><span>Add the approved dataset access link when available</span><b>Coming soon</b></div>
+      <a class="resource-card" href="#citation"><span class="resource-icon">❝</span><strong>Citation</strong><span>Copy the provisional BibTeX entry</span><b>View ↓</b></a>
+    </div>
+    <h3 class="subheading" id="citation">BibTeX</h3>
+    <pre class="bibtex"><code>@inproceedings{pairairbench,
+  title     = {PairAir-Bench: A Dual-Location Paired Image Dataset for Cross-Scene Generalizable Air Quality Estimation},
+  author    = {Keshri, Ankit Kumar and Parmar, Dilip and Tripathi, Sachchida Nand and Sandhan, Tushar},
+  booktitle = {Update with the official conference proceedings},
   year      = {2026}
 }</code></pre>
-      <p class="note">Provisional only: replace the authors, official conference name, year, and citation key with the exact publisher-provided BibTeX before public release.</p>
-    </section>
-  </main>
-
-  <footer>
-    <a class="brand" href="#top"><span class="brand-mark">P</span><span>PairAir</span></a>
-    <p>Project page for PairAir · <a href="#resources">Resources</a></p>
-    <p class="footer-small">Built with HTML and CSS · Hosted with GitHub Pages</p>
-  </footer>
+    <p class="small-copy">The proceedings field and citation key are provisional. Replace them with the official published BibTeX once available. Code and dataset links are intentionally marked as pending rather than pointing to unavailable resources.</p>
+  </section>
+</main>
+<footer>
+  <a class="brand" href="#top"><span class="brand-mark">P</span><span>PairAir-Bench</span></a>
+  <p>Indian Institute of Technology Kanpur</p>
+  <p class="footer-small">Project website · Hosted with GitHub Pages</p>
+</footer>
 </body>
 </html>
